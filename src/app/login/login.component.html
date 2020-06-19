@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<!-- Top content -->
+<div class="top-content">
+    <div class="loginbox">
+        <div class="container">
+
+            <div class="col-sm-4 col-sm-offset-4 loginbg">
+                <div class="form-top">
+                    <h3>Login</h3>
+                </div>
+                <div class="form-bottom">
+                    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="width100">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" formControlName="username" class="form-control">
+                            <span *ngIf="!signinForm.get('username').valid && signinForm.get('username').touched" class="help-block"> Please enter a valid username</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" formControlName="password" class="form-control">
+                            <span *ngIf="!signinForm.get('password').valid && signinForm.get('password').touched" class="help-block"> Please enter a valid password</span>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <select formControlName="userType" class="selector selectoropt form-control">
+                                <option>Course Admin</option>
+                                <option>Student</option>
+                            </select>
+                            <span *ngIf="!signinForm.get('userType').valid && signinForm.get('userType').touched" class="help-block"> Please enter a valid User Type</span>
+                        </div>
+
+                        <div class="form-group">
+                            <button [disabled]="loading" class="btn btn-success lgnadjuster">Login</button>
+                            <!--        <a [routerLink]="['/register']" class="btn btn-link">Register</a>-->
+                        </div>
+                        <br>
+                        <hr />
+                        <div class="form-group text-center">
+                            <a href="#">Forgot Password ?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>
+
