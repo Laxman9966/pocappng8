@@ -12,11 +12,23 @@ import { User } from '../model/user';
 import { Student } from '../model/student';
 import { CourseAdmin } from '../model/courseadmin';
 import {Course} from "../model/course";
+import { Cenrole } from "../model/cenrole";
+
 
 @Injectable()
-export class ApiservicesService {
-
+export class ApiService {
+// 12345
   baseUrl: string =  'http://localhost:8080';
+
+  addUserURI : string = 'http://localhost:8020/auth/adduser';
+  signInURI : string  = 'http://localhost:8020/auth/usersignin';
+
+  getAllCoursesURI : string = 'http://localhost:8030/course/getAllCourses';
+  addCourseURI : string = 'http://localhost:8030/course/addCourse';
+  getCourseByIdURI : string = 'http://localhost:8030/course/addCourse';
+
+  getAllCourseEnrolementsURI : string = 'http://localhost:8040/student/getAllCourseEnrolemets';
+  enroleCourseURI : string = 'http://localhost:8040/student/enroleCourse';
 
   constructor(
     private http: HttpClient,
@@ -45,6 +57,32 @@ ngOnInit() {
 }
 
 
+getAllCourses():Observable<Course[]>  {
+  return <Observable<Course[]>> this.get_service(this.getAllCoursesURI);
+}
+
+enroleCourse(cenrole : Cenrole) : Observable<Course> {
+  return <Observable<Course>> this.post_service(this.enroleCourseURI, cenrole );
+}
+
+getAllCourseEnrolements():Observable<Cenrole[]>  {
+  return <Observable<Cenrole[]>> this.get_service(this.getAllCourseEnrolementsURI);
+}
+
+
+
+registerUser(user : User) {
+  return this.post_service(this.addUserURI, user );
+} 
+
+userSignIn(user : User) : Observable<User> {
+  return <Observable<User>> this.post_service(this.signInURI, user );
+}
+
+addCourse(course: Course) : Observable<Course> {
+  return <Observable<Course>> this.post_service(this.addCourseURI, course );
+}
+
 addStudent(student: Student) {
   return this.post_service(this.apiList.addStudent, student );
 
@@ -57,9 +95,9 @@ addCourseAdmin(courseAdmin: CourseAdmin) {
   return this.post_service(this.apiList.addStudent, courseAdmin );
 }
 
-addCourse(course: Course) : Observable<Course> {
-  return <Observable<Course>> this.post_service(this.apiList.addStudent, course );
-}
+
+
+
 
 saveEmployer(user: Course) {
  // return this.apiservice.post_service(ApiServices.employerApiList.saveEmployer, user);
@@ -67,9 +105,6 @@ saveEmployer(user: Course) {
 }
 
 
-getAllCourses():Observable<Course[]>  {
-  return <Observable<Course[]>> this.get_service(this.apiList.listCourses);
-}
 
 serachCourse(course : string) : Observable<Course[]> {
   return <Observable<Course[]>>this.get_service(this.apiList.getCourseByName +'?courseName='+course);
@@ -110,11 +145,63 @@ post_service(url : string, data : any) {
     // return this.http.post(this.baseUrl + url, data, httpOptions).pipe(map (data =>{})).subscribe((response) => {
     //   return response;
     // }).catch(this.handleError);
-    return this.http.post(this.baseUrl + url, data, httpOptions)
+    return this.http.post(url, data, httpOptions)
       .pipe(map(res =>  {return res}));
   }
 
 
+  put_service(url : string, data : any) {
+    console.log('@@@@@   URL ' + url);
+      var localStorageVariable = '';
+      if (localStorage.getItem('authToken')) {
+        localStorageVariable = localStorage.getItem('authToken');
+      }
+      let headerJson = {
+        'Content-Type': 'application/json',
+        'Authorization': localStorageVariable
+      };
+      const httpOptions = {
+        headers: new HttpHeaders(headerJson)
+      };
+  
+      return this.http.put(url, data, httpOptions)
+      .pipe(map(response => {return response} ));
+      //.catch(this.handleError);
+  
+    }
+
+
+
+
+
+
+
+    get_service(url : string) {
+      console.log('  ####### URL  '+url);
+          var localStorageVariable = '';
+          if (localStorage.getItem('authToken')) {
+            localStorageVariable = localStorage.getItem('authToken');
+          }
+          let headerJson = {
+            'Content-Type': 'application/json',
+            'Authorization': localStorageVariable
+          };
+          const httpOptions = {
+            headers: new HttpHeaders(headerJson)
+          };
+      
+          return this.http.get(url, httpOptions).pipe(map(response => {return response }));
+          //.catch(this.handleError);
+      
+          //https://stackoverflow.com/questions/48837692/type-observableobject-is-not-assignable-to-type-observableiuser
+        }
+
+
+
+
+
+
+ /*
   put_service(url : string, data : any) {
     console.log('@@@@@   URL ' + url);
       var localStorageVariable = '';
@@ -134,10 +221,13 @@ post_service(url : string, data : any) {
       //.catch(this.handleError);
   
     }
+ 
 
+ */
 
+/*
   get_service(url : string) {
-
+console.log('  ####### URL  '+url);
     var localStorageVariable = '';
     if (localStorage.getItem('authToken')) {
       localStorageVariable = localStorage.getItem('authToken');
@@ -155,6 +245,10 @@ post_service(url : string, data : any) {
 
     //https://stackoverflow.com/questions/48837692/type-observableobject-is-not-assignable-to-type-observableiuser
   }
+*/
+
+
+
 
 
   private handleError(errorObj: HttpErrorResponse | any) {

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiservicesService } from './services/apiservices.service';
+import { ApiService } from './services/apiservice';
 
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
@@ -32,6 +32,7 @@ import { CourseenrolementsComponent } from './courseenrolements/courseenrolement
 import { PagenoutfoundComponent } from './pagenoutfound/pagenoutfound.component';
 import { ListcourseenrolementsComponent } from './listcourseenrolements/listcourseenrolements.component';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { RegsuccessComponent } from './regsuccess/regsuccess.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     CourseenrolementsComponent,
     PagenoutfoundComponent,
     ListcourseenrolementsComponent,
-    RegisteruserComponent
+    RegisteruserComponent,
+    RegsuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 
 
   ],
-  providers: [ApiservicesService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

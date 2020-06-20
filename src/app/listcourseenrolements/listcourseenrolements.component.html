@@ -4,6 +4,36 @@
 <app-header></app-header>
  
  
+<div class="col-md-12">
+    <h2 class="text-center">List Of Course Enrolements</h2>
+    <!-- <a  class="btn btn-primary " [routerLink]="['/home']"> Home </a>
+    <button class="btn btn-danger" (click)="addUser()"> Add User</button> -->
+    <table class="table table-striped mt-3">
+      <thead>
+      <tr>
+        <th class="hidden">Record Id</th>
+        <th>Student Name</th>
+        <th>Course Name</th>
+        <th>Enrolement Date</th>
+        <!-- <th>Course Start Date</th> -->
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+  
+      <tr *ngFor="let course of cenrolemens">
+        <td class="hidden">{{course.id}}</td>
+        <td>{{course.sname}}</td>
+        <td>{{course.cname}}</td>
+        <td>{{course.edate}}</td>
+        <!-- <td><button class="btn btn-danger" (click)="enroleCourse(course)"> Enrole Course</button></td> -->
+      </tr>
+  
+      </tbody>
+    </table>
+  </div>
+
+  
  
 <app-footer></app-footer>
 

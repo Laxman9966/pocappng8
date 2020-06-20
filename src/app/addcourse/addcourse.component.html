@@ -10,29 +10,28 @@
 
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-
-      <label for="email">Company Name:</label>
-      <input type="name" formControlName="companyName" placeholder="companyName" name="companyName" class="form-control" id="companyName">
+      <label for="email">Course Name:</label>
+      <input type="name" formControlName="cname" placeholder="cname" name="cname" class="form-control" id="cname">
     </div>
 
     <div class="form-group">
-      <label for="firstName">City:</label>
-      <input formControlName="city" placeholder="city" name="city" class="form-control" id="city">
+      <label for="fee">Fee:</label>
+      <input formControlName="fee" placeholder="fee" name="fee" class="form-control" id="fee">
     </div>
 
     <div class="form-group">
-      <label for="firstName">Email:</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      <label for="firstName">Course Duration:</label>
+      <input type="duration" formControlName="duration" placeholder="duration" name="duration" class="form-control" id="duration">
     </div>
 
 
     <div class="form-group">
-      <label for="lastName">Password:</label>
-      <input formControlName="password" placeholder="Password" name="password" class="form-control" id="password">
+      <label for="lastName">Course Start Date:</label>
+      <input formControlName="sdate" placeholder="date as yyyy-mm-dd" name="sdate" class="form-control" id="sdate">
     </div>
 
     <button class="btn btn-success">Add </button>
-    <a  class="btn btn-primary" [routerLink]="['/home']"> Cancel </a>
+    <a class="btn btn-primary ml-5" [routerLink]="['/home']"> Cancel </a>
   </form>
 
 </div>

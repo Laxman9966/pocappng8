@@ -21,7 +21,7 @@ import { CourseenrolementsComponent } from './courseenrolements/courseenrolement
 import { PagenoutfoundComponent } from './pagenoutfound/pagenoutfound.component';
 import { ListcourseenrolementsComponent } from './listcourseenrolements/listcourseenrolements.component';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
-
+import { RegsuccessComponent } from './regsuccess/regsuccess.component';
 
 const routes: Routes = [
   
@@ -30,11 +30,14 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'notification', component: NotificationComponent},
 
+  {path: 'add-user', component: AddcourseadminComponent},
   {path: 'register-user', component: RegisteruserComponent},
+  {path: 'reg-success', component: RegsuccessComponent},
   {path: 'changepassword', component: ChangepasswordComponent},
+
   
   {path: 'add-student', component: AddstudentComponent},
-  {path: 'add-courseadmin', component: AddcourseadminComponent},
+  
   {path: 'edit-courseadmin', component: EditcourseadminComponent},
 
   {path: 'add-course', component: AddcourseComponent},

@@ -4,6 +4,47 @@
 <app-header></app-header>
  
  
+
+
+<div class="col-md-12">
+    <h2 class="text-center"> List Of Courses</h2>
+
+    <div class="alert alert-primary" role="alert">
+      {{actionMessage}}
+    </div>
+
+    <a  class="btn btn-primary" [routerLink]="['/home']"> Home </a>
+    <!-- <button class="btn btn-danger" (click)="addCourse()"> Add User</button> -->
+
+    <table class="table table-striped mt-3">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Course Name</th>
+        <th>Fee  Title</th>
+        <th>Duration</th>
+        <th>Course Start Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+  
+      <tr *ngFor="let course of courses">
+        <td class="hidden">{{course.id}}</td>
+        <td>{{course.cname}}</td>
+        <td>{{course.fee}}</td>
+        <td>{{course.duration}}</td>
+        <td>{{course.sdate}}</td>
+        <td>
+          <!-- <button class="btn btn-danger" (click)="deleteCourse(course)"> Delete</button> -->
+          <button class="btn btn-primary" (click)="enroleCourse(course)" style="margin-left: 20px;"> Enrole</button></td>
+      </tr>
+  
+      </tbody>
+    </table>
+  </div>
+
  
 <app-footer></app-footer>
 

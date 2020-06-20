@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { ApiservicesService } from '../services/apiservices.service';
+import { ApiService } from '../services/apiservice';
 import {first} from "rxjs/operators";
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class AddcourseComponent implements OnInit {
 
   constructor(
-    private apiService : ApiservicesService, 
+    private apiService : ApiService, 
     private router : Router , 
     private formBuilder : FormBuilder
     ) { }
@@ -23,10 +23,10 @@ export class AddcourseComponent implements OnInit {
     this.addForm = this.formBuilder.group(
       {
       id: [],
-      companyName: ['', Validators.required],
-      city: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      cname: ['', Validators.required],
+      fee: ['', Validators.required],
+      duration: ['', Validators.required],
+      sdate: ['', Validators.required],
     }
     );
   }

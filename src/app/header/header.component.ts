@@ -9,23 +9,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   private userName : string
-
+  usertype : string ;
+  
   constructor(
         private route: ActivatedRoute,
         private router: Router,
         ) { }
 
   ngOnInit() {
-      this.userName =   localStorage.getItem('currentUser');
+      this.userName =   localStorage.getItem('name');
        //this.userName =   localStorage.getItem('currentUser');
+       this.usertype =   localStorage.getItem('usertype');
   }
   
   logout(){
-      alert('logout clicked');
-      console.log("logout clicked..")
+      localStorage.setItem('name', '');
       localStorage.setItem('currentUser', '');
-      localStorage.setItem('currentUser', '');
-      this.router.navigate(["home"]);
+      this.userName = '';
+      this.router.navigate(["login"]);
   }
 
 }

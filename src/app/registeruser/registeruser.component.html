@@ -1,1 +1,46 @@
-<p>registeruser works!</p>
+
+<app-header></app-header>
+
+<div class="col-sm-6">
+    <div class="container-fluid">
+    <div class="box box-shadow">
+    
+      <h2 class="text-center">Register User</h2>
+    
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+    
+          <label for="Name"> Name:</label>
+          <input type="name" formControlName="name" placeholder="name" name="name" class="form-control" id="name">
+        </div>
+    
+        <div class="form-group">
+          <label for="username">User Name:</label>
+          <input formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+        </div>
+    
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input formControlName="password" placeholder="Password" name="password" class="form-control" id="password">
+        </div>
+
+
+        <div class="form-group">
+            <label for="usertype">User Type:</label>
+            <select class="selector selectoropt form-control" placeholder="Password" formControlName="usertype">
+                <option>Course Admin</option>
+                <option>Student</option>
+            </select>
+        </div>
+
+       
+    
+        <button class="btn btn-success">Add </button>
+        <a  class="btn btn-primary" [routerLink]="['/home']"> Cancel </a>
+      </form>
+    
+    </div>
+    </div>
+    </div>
+
+    <app-footer></app-footer>

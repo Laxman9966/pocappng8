@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { ApiservicesService } from '../services/apiservices.service';
+import { ApiService } from '../services/apiservice';
 import {first} from "rxjs/operators";
 import {Router} from "@angular/router";
 
@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 export class AddcourseadminComponent implements OnInit {
 
   constructor(
-    private apiService : ApiservicesService, 
+    private apiService : ApiService, 
     private router : Router , 
     private formBuilder : FormBuilder
     ) { }

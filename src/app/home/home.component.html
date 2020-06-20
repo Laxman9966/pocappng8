@@ -1,48 +1,109 @@
 
  <app-header></app-header>
  
+ <div class="container bg-faded">
+  <h1 class="text-center">Home Page Navigable Links</h1>
+  <div class="row mb-5">
+      <div class="col text-center">We appreciate your interest choosing our application</div>
+  </div>
+  <hr>
  
- 
- <app-footer></app-footer>
+</div>
  
 
 
-<div class="container">
+<div *ngIf="usertype==='Student'" class="container">
 <ul class="list-group list-group-horizontal">
-  <li class="list-group-item">
-    <a routerLink="/home">home</a>
-  </li>
+  <li class="list-group-item"><a routerLink="/register-user">register-user</a></li>
   <li class="list-group-item"> <a routerLink="/login">login</a></li>
   <li class="list-group-item"><a routerLink="/home">home</a></li>
-  <li class="list-group-item"><a routerLink="/notification">notification</a></li>
-  <li class="list-group-item"><a routerLink="/register-user">register-user</a></li>
-  <li class="list-group-item"><a routerLink="/changepassword">changepassword</a></li>
-  <li class="list-group-item"><a routerLink="/list-course-enrolements">list-course-enrolements</a></li>
+  <li class="list-group-item"><a routerLink="/list-courses">list-courses</a></li>
 </ul>
+<hr>
+<div class="container bg-faded mt-4">
+  <h3 class="text-center">Application Improvement Links</h3>
+</div>
+<hr>
+
 <br>
+
+<!-- 
 <ul class="list-group list-group-horizontal">
   <li class="list-group-item"><a routerLink="/add-student">add-student</a></li>
   <li class="list-group-item"><a routerLink="/add-courseadmin">add-courseadmin</a></li>
   <li class="list-group-item"><a routerLink="/edit-courseadmin">edit-courseadmin</a></li>
-
-  <li class="list-group-item"><a routerLink="/add-course">add course</a></li>
-  <li class="list-group-item"><a routerLink="/edit-course">edit course</a></li>
-  <li class="list-group-item"><a routerLink="/list-courses">list-courses</a></li>
-
- 
-  <li class="list-group-item"><a routerLink="/page-notfound">pagenotfound</a></li>
 </ul>
+
+<br>
+<ul class="list-group list-group-horizontal">
+  <li class="list-group-item"><a routerLink="/edit-course">edit course</a></li>
+  <li class="list-group-item"><a routerLink="/notification">notification</a></li>
+  <li class="list-group-item"><a routerLink="/page-notfound">pagenotfound</a></li>
+  <li class="list-group-item"><a routerLink="/changepassword">changepassword</a></li>
+</ul> -->
 </div>
 
 
-<br>
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
+
+
+<div *ngIf="usertype==='Course Admin'" class="container">
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><a routerLink="/register-user">CA - register-user</a></li>
+    <li class="list-group-item"> <a routerLink="/login">login</a></li>
+    <li class="list-group-item"><a routerLink="/home">home</a></li>
+    
+    <li class="list-group-item"><a routerLink="/add-course">add course</a></li>
+    <li class="list-group-item"><a routerLink="/list-courses">list-courses</a></li>
+    <li class="list-group-item"><a routerLink="/list-course-enrolements">list-course-enrolements</a></li>
+  </ul>
+  <hr>
+  <div class="container bg-faded mt-4">
+    <h3 class="text-center">Application Improvement Links</h3>
   </div>
+  <hr>
+  
+  <br>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><a routerLink="/add-student">add-student</a></li>
+    <li class="list-group-item"><a routerLink="/add-courseadmin">add-courseadmin</a></li>
+    <li class="list-group-item"><a routerLink="/edit-courseadmin">edit-courseadmin</a></li>
+  </ul>
+  
+  <br>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><a routerLink="/edit-course">edit course</a></li>
+    <li class="list-group-item"><a routerLink="/notification">notification</a></li>
+    <li class="list-group-item"><a routerLink="/page-notfound">pagenotfound</a></li>
+    <li class="list-group-item"><a routerLink="/changepassword">changepassword</a></li>
+  </ul>
+  </div>
+  
+
+  <!-- <div class="container">
+    <hr>
+    <div class="container bg-faded mt-4">
+      <h3 class="text-center">Application Improvement Links </h3>
+    </div>
+    <hr>
+    
+    <br>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><a routerLink="/add-student">View User Details</a></li>
+      <li class="list-group-item"><a routerLink="/add-courseadmin">Edit User Details</a></li>
+    </ul>
+    
+    <br>
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><a routerLink="/edit-course">edit course</a></li>
+      <li class="list-group-item"><a routerLink="/notification">notification</a></li>
+      <li class="list-group-item"><a routerLink="/page-notfound">pagenotfound</a></li>
+      <li class="list-group-item"><a routerLink="/changepassword">changepassword</a></li>
+    </ul>
+    </div> -->
+
+
+
+
+<br><br><br><br><br><br><br>
+
+  <app-footer></app-footer>

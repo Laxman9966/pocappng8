@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  usertype : string ;
   constructor() { }
 
   ngOnInit() {
+    this.usertype =   localStorage.getItem('usertype');
+    console.log(" #### " +this.usertype);
   }
 
 }

@@ -3,7 +3,7 @@ export interface Courseadmin {
     courseadminname : string;
     
 }
-export interface CourseAdmin {
+export class CourseAdmin {
 
     courseid : number;
     coursename : string;

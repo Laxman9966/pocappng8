@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { ApiservicesService } from '../services/apiservices.service';
-
+import { ApiService } from '../services/apiservice';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(
     //private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiservicesService
+    private apiService: ApiService
     ) {
     }  
   
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
 
     onSubmit() {
+      console.log("************ onSubmit ");
       this.loading=true;
       if (this.signinForm.invalid) {
         return;
@@ -47,16 +48,43 @@ export class LoginComponent implements OnInit {
       this.errorMessage="";
       localStorage.setItem('currentUser', "");
       this.submitted=true;
-      var user={
-        username: this.signinForm.value.username,
-        password: this.signinForm.value.password,
-        userType: this.signinForm.value.userType
+       //let user = new User();
+
+
+       var user : User ={
+        id:0 ,
+        name:'' ,
+        username:'',
+        password:'',
+        usertype:''
       };
-      console.log("*******form signinForm "+JSON.stringify(this.signinForm.value));
-      console.log("*******form user "+JSON.stringify(user));
+
+      //  var user : User ={
+      //    username: this.signinForm.value.username,
+      //    password: this.signinForm.value.password,
+      //    usertype: this.signinForm.value.userType
+      //  };
+      user.username =this.signinForm.value.username;
+      user.password =this.signinForm.value.password;
+      user.usertype =this.signinForm.value.userType;
+
+      console.log("************ add Course addCourse "+JSON.stringify(user));
       localStorage.setItem('currentUser', this.signinForm.value.username);
-      this.loading=false;
-  //    this.router.navigate(["/home"]);
+     
+
+      this.apiService.userSignIn(user).subscribe( data=> {
+        console.log("************ add Course addCourse "+JSON.stringify(data));
+        this.loading=false;
+        localStorage.setItem("sid", data['sid']);
+        localStorage.setItem("name", data['name']);
+        localStorage.setItem("usertype", data['usertype']);
+        
+        if(data['usertype']==='Course Admin')
+            this.router.navigate(['list-course-enrolements']);
+        else     
+        this.router.navigate(['list-courses']);
+      })
+      
       //this.errorMessage="Invalid UserName / Password";
       //this.apiService.
      //  this.apiservice.post_service(ApiServices.apiList.saveJobSeeker, user );

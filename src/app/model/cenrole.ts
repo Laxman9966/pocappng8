@@ -1,11 +1,9 @@
-export class Course {
+export class Cenrole {
 
     id : number;
     cname : string;
-    fee : string;
-    duration : string;
-    sdate : string
-
+    sname : string;
+    edate : Date;
 
    // CourseId,CouseName,Fee,CourseDuration,Start Date
 }

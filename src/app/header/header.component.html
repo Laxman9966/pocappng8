@@ -13,46 +13,48 @@
       </button>
 
       <div class="collapse navbar-collapse float-right justify-content-end" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto justify-content-end">
-              <li class="nav-item active">
-                  <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
+         
+
+        <ul class="navbar-nav mr-auto justify-content-end">
+
+
+          <div *ngIf="userName !==''" class="float-right ">  
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <span class="text-light"> User Type : {{usertype}}  </span>
+        </li>
+          </div>
+
+
+            
+
+              <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login <span class="sr-only"></span></a>
                   <!-- <a class="nav-link"  href="#">Features</a> -->
-              </li>
+              <!-- </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Pricing</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Opinions</a>
-              </li>
+              </li>  -->
+
           </ul>
 
 
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+          <div *ngIf="userName !==''" class="float-right ">  
+            <!-- <a class="nav-link" href="#"> Opinions</a> -->
+            <span class="text-light"> Welcome {{userName}} ! <a class="ml-2 text-light" (click)="logout()">Logout</a> </span>
+           
           </div>
-          
+          <br>
 
-          <!-- <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item">
-                  <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link"><i class="fab fa-instagram"></i></a>
-              </li>
-          </ul> -->
+          
+          
+         
       </div>
     </div>
   </nav>
@@ -68,3 +70,15 @@
 <!--Main Layout-->
 
 <!--Main Layout-->
+
+
+<!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div> -->
